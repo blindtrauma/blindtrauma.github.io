@@ -9,7 +9,8 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: false,
   },
   images: {
-    unoptimized: true, // Required for output: 'export' — disables server-side Image Optimization API
+    // unoptimized: true is no longer needed — Vercel runs Next.js
+    // natively and handles image optimization automatically.
     remotePatterns: [
       {
         protocol: 'https',
@@ -19,7 +20,8 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  output: 'standalone',
+  // output: 'export' removed — Vercel supports full Next.js server mode.
+  // Static export was disabling Server Actions and Image Optimization for no benefit.
   transpilePackages: ['motion'],
   webpack: (config, {dev}) => {
     if (dev && process.env.DISABLE_HMR === 'true') {
