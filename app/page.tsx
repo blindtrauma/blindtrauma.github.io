@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <PageTransition>
       <HeroSection />
-      {/* <MarqueeSection /> */}
+      <MarqueeSection />
       <ServicesSection />
       <StatsSection />
       <PortfolioPreview />
